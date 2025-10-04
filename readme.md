@@ -227,8 +227,15 @@ Setelah upload berhasil, file dapat diverifikasi di sisi server dengan:
 
 <h3> Bukti yang Perlu Diunggah</h3>
 <ul>
+	<li>Screenshot bukti file cuaca.txt terkirim</li>
+	<img width="1450" height="200" alt="image" src="https://github.com/user-attachments/assets/0346da5a-2a35-4811-baa4-81aa151f5f78" />
+
   <li>Screenshot hasil tangkapan Wireshark yang menunjukkan perintah <code>STOR cuaca.txt</code></li>
+  <img width="1664" height="220" alt="image" src="https://github.com/user-attachments/assets/11ccc06b-77b0-4716-8932-a9615bce8ee2" />
+
   <li>Screenshot dari sisi server Eru yang menampilkan file <code>cuaca.txt</code> di direktori <code>/srv/ftp/sharing</code></li>
+  <img width="424" height="92" alt="image" src="https://github.com/user-attachments/assets/eb935efa-6079-4132-8000-54f6c43304f9" />
+
 </ul>
 
 ## No. 9
