@@ -231,7 +231,7 @@ Setelah upload berhasil, file dapat diverifikasi di sisi server dengan:
 </p>
 <pre><code>ls -l /srv/ftp/sharing/cuaca.txt</code></pre>
 
-<h3> Bukti yang Perlu Diunggah</h3>
+<h3> Bukti </h3>
 <ul>
 	<li>Screenshot bukti file cuaca.txt terkirim</li>
 	<img width="1450" height="200" alt="image" src="https://github.com/user-attachments/assets/0346da5a-2a35-4811-baa4-81aa151f5f78" />
@@ -286,11 +286,17 @@ Perintah <code>RETR</code> digunakan oleh protokol FTP untuk mengambil (download
   <li>Hasilnya gagal, karena file di server sudah <b>read-only</b>, sehingga user <code>ainur</code> tidak memiliki izin untuk menimpa/menulis file tersebut.</li>
 </ol>
 
-<h3> Bukti yang Perlu Diunggah</h3>
+<h3> Bukti </h3>
 <ul>
   <li>Screenshot hasil Wireshark yang menunjukkan perintah <code>RETR kitab_penciptaan.txt</code></li>
+	<img width="1721" height="224" alt="image" src="https://github.com/user-attachments/assets/ef44e8f7-f523-4809-b28d-69e5b2836b8f" />
+
   <li>Screenshot isi direktori server (<code>ls -l /srv/ftp/sharing</code>) yang memperlihatkan permission file <code>kitab_penciptaan.txt</code> sudah berubah menjadi <code>-r--------</code></li>
+  <img width="1722" height="279" alt="image" src="https://github.com/user-attachments/assets/c0264994-e6c1-48eb-8696-b76e7b134f73" />
+
   <li>Screenshot dari sisi Manwe yang menunjukkan kegagalan perintah <code>put kitab_penciptaan.txt</code></li>
+	<img width="719" height="121" alt="image" src="https://github.com/user-attachments/assets/62dc3a28-5b65-4689-9d8e-fe07ac117978" />
+
 </ul>
 
 ## No. 10
@@ -332,9 +338,13 @@ rtt min/avg/max/mdev = 0.453/0.600/0.905/0.120 ms
 
 <h3> Bukti yang Perlu Diunggah</h3>
 <ul>
-  <li>Screenshot hasil output <code>ping -c 100</code> dari node Melkor (tampilkan packet loss dan average RTT).</li>
+  <li>Screenshot hasil output <code>ping -c 100</code> dari node Melkor .</li>
+	<img width="724" height="92" alt="image" src="https://github.com/user-attachments/assets/308eb1b7-b9d8-48e7-ae94-b5480be170ec" />
+
   <li>Screenshot hasil capture Wireshark dengan filter <code>icmp && ip.addr==10.78.1.1</code>, 
       yang memperlihatkan banyak request ICMP dikirim ke Eru.</li>
+	  <img width="1534" height="446" alt="image" src="https://github.com/user-attachments/assets/1c23751a-533d-4071-8f46-f7d0dc2f0bcd" />
+
 </ul>
 
 ## No. 11
@@ -388,12 +398,17 @@ Frame 10  … 10.78.1.1 → 10.78.1.2   FTP   Request: PASS eru_test
 
 <p>Baris di atas menunjukkan bahwa <code>USER</code> dan <code>PASS</code> dikirim sebagai ASCII plaintext dalam payload TCP — sehingga siapa pun yang dapat menangkap trafik pada segmen jaringan tersebut dapat membaca username &amp; password.</p>
 
-<h3>🧾 Bukti yang Harus Diunggah</h3>
+<h3> Bukti </h3>
 <ul>
   <li>Screenshot Wireshark (filter <code>ftp</code>) yang menampilkan baris <code>USER eru_test</code> dan <code>PASS &lt;password&gt;</code>.</li>
-  <li>Screenshot <b>Follow TCP Stream</b> untuk koneksi FTP yang menampilkan percakapan lengkap (terlihat <code>USER</code> dan <code>PASS</code> dalam teks jelas).</li>
+	<img width="1520" height="109" alt="image" src="https://github.com/user-attachments/assets/a432a588-4666-4670-8b6d-6ba128605a7e" />
+
   <li>Screenshot terminal Melkor yang menunjukkan file uji di home (<code>ls -l /home/eru_test/penting.txt</code>).</li>
+  <img width="749" height="63" alt="image" src="https://github.com/user-attachments/assets/498025b0-e71c-4c14-a528-0e6723e4aa02" />
+
   <li>Screenshot terminal Eru yang menunjukkan perintah FTP &amp; berhasil <code>get penting.txt</code>.</li>
+  <img width="1442" height="167" alt="image" src="https://github.com/user-attachments/assets/5ba63aa2-8221-4bf8-93f2-f332025628ed" />
+
 </ul>
 
 <h3> Kesimpulan singkat</h3>
@@ -461,27 +476,24 @@ Catatan: <b>Connection refused (RST)</b> berbeda dari <b>timeout</b>. Jika tidak
   <li>Screenshot output hasil scan (`/tmp/scan_result.txt`) yang menunjukkan teks hasil `nc`.</li>
 </ul>
 
-<h3> Bukti yang Perlu Diunggah ke Repo</h3>
+<h3> Bukti </h3>
 <ol>
-  <li>Output scan (`/tmp/scan_result.txt`) atau capture terminal yang menunjukkan hasil netcat.</li>
-  <li>Screenshot Wireshark: 3-way handshake untuk port 21 (SYN / SYN-ACK / ACK).</li>
-  <li>Screenshot Wireshark: SYN → RST untuk port 80 dan 666 (bukti closed).</li>
+  <li>Output scan (`/tmp/scan_result.txt`).</li>
+	<img width="904" height="260" alt="image" src="https://github.com/user-attachments/assets/41f1e707-6e38-4228-9b49-66c93ea36986" />
+	<img width="1896" height="386" alt="image" src="https://github.com/user-attachments/assets/21c4fe65-00e6-405c-9cc2-a038d64282b0" />
+
   <li>Optional: output <code>ss -ltnp | grep :21</code> di Melkor sebagai bukti listener vsftpd.</li>
+  <img width="938" height="66" alt="image" src="https://github.com/user-attachments/assets/81696d18-c21c-476c-a0df-a85ef9b74301" />
+
 </ol>
 
-<h3>🔚 Kesimpulan singkat</h3>
+<h3> Kesimpulan singkat</h3>
 <p>
 Pemindaian sederhana menunjukkan bahwa <b>Melkor menjalankan layanan FTP di port 21</b> sementara <b>port 80 dan 666 tertutup</b>. Karena balasan berupa <code>RST</code>, tidak ditemukan indikasi filtering; Melkor memang tidak menjalankan layanan pada port yang diuji (80, 666).
 </p>
 
 ## No. 13
-<h2> Laporan: Demonstrasi Keamanan SSH (Varda → Eru)</h2>
 
-<p>
-Tujuan: Menunjukkan bahwa koneksi administratif melalui <b>SSH</b> (Secure Shell) mengenkripsi komunikasi sehingga <b>username</b> dan <b>password</b> tidak dapat disadap sebagai plaintext. Eksperimen dilakukan di lingkungan lab (GNS3) menggunakan <b>OpenSSH</b> pada node <b>Eru</b> dan <b>Wireshark</b> untuk capture.
-</p>
-
-<h3>🛠️ Persiapan & Perintah</h3>
 <ol>
   <li><b>Di node Eru (server):</b>
     <pre><code>apt-get update
@@ -536,10 +548,10 @@ ssh
 <h3> Bukti yang Harus Diunggah</h3>
 <ul>
   <li>Screenshot Wireshark: paket banner &amp; Key Exchange (filter = <code>tcp.port==22</code> / <code>ssh</code>).</li>
-  <li>Screenshot Wireshark: paket berlabel <code>Encrypted packet</code> (tunjukkan panel Packet Bytes yang menampilkan data biner, bukan ASCII readable).</li>
-  <li>Screenshot Follow → TCP Stream pada sesi SSH (menampilkan data acak/biner — bukti terenkripsi).</li>
-  <li>Screenshot terminal Varda yang menunjukkan perintah <code>ssh admin_erux@&lt;IP_ERU&gt;</code> dan prompt password (opsional: gunakan <code>ssh -v</code> untuk menampilkan proses handshake di client).</li>
-  <li>Sekaligus unggah satu screenshot perbandingan: Follow TCP Stream untuk sesi FTP/Telnet (menunjukkan <code>USER</code>/<code>PASS</code> plaintext) vs Follow TCP Stream sesi SSH (terenkripsi).</li>
+	<img width="1918" height="874" alt="image" src="https://github.com/user-attachments/assets/8bdb2eee-8a8c-46b8-8927-2330b79f2bb8" />
+
+  <li>Screenshot Wireshark: paket berlabel <code>Encrypted packet</code>.</li>
+  <img width="1187" height="28" alt="image" src="https://github.com/user-attachments/assets/5d6d134d-ef26-41d2-a644-8fd422e150e3" />
 </ul>
 
 ## No. 14
