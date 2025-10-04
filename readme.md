@@ -7,8 +7,23 @@ Anggota
 | Jofanka Al-Kautsar Pangestu Abady | 5027241107 |
 
 
-## No. 1
+## No. 1 - 3
+Pertama-tama, kita akan membuat Eru sebagai router, lalu membuat 2 switch, dimana setiap swtich mempunyai 2 client, dengan switch 1 mempunyai client yang bernama Melkor dan Manwe dan switch 2 mempunyai client yang bernama Varda dan Ulmo.
 
+Selanjutnya, setiap node dihubungkan, dengan Eru terhubung ke NAT. Lalu, server dinyalakan. Untuk tampilannya seperti ini.
+
+<img width="1098" height="702" alt="Screenshot 2025-10-04 at 14 11 52" src="https://github.com/user-attachments/assets/188e2c78-d19c-43b4-bc20-7898053076ce" />
+
+## No. 4
+## No. 5
+## No. 6
+## No. 7
+## No. 8
+## No. 9
+## No. 10
+## No. 11
+## No. 12
+## No. 13
 
 ## No. 14
 Pada soal ini, kita akan mencari berapa banyak paket dalam file `.pcapng`. Untuk mencarinya kita hanya perlu melihat bagian bawah dari Wireshark. Untuk tampilannya seperti ini.
