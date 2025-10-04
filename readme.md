@@ -94,28 +94,34 @@ agar konfigurasi tidak hilang maka bisa disimpan di .bashrc, jadi ketika file in
 
 ## No. 6
 Setelah semua Ainur terhubung ke internet, Melkor mencoba menyusup ke dalam komunikasi antara Manwe dan Eru. Jalankan file berikut (link file) lalu lakukan packet sniffing menggunakan Wireshark pada koneksi antara Manwe dan Eru, lalu terapkan display filter untuk menampilkan semua paket yang berasal dari atau menuju ke IP Address Manwe. Simpan hasil capture tersebut sebagai bukti. 
+
 Langkah pertama yang dilakukan ialah mendownload file tersebut, lalu buka scriptnya. copy isi scriptnya dan ketik 
 ```
 nano traffic.sh
 ```
-ketik ini di melkor, setelah itu paste scriptnya :
+ketik ini di melkor, setelah itu paste scriptnya:
+
 <img width="962" height="445" alt="image" src="https://github.com/user-attachments/assets/817c5472-2646-4e35-9002-41f4e1f9b5a8" />
-setelah itu save dan ubah filenya menjadi executable, dengan cara :
+
+setelah itu save dan ubah filenya menjadi executable, dengan cara:
 
 ```
 chmod +x traffic.sh	
 ```
-Lalu mulai capture wiresharknya :(pilih jaringan melkor) 
+Lalu mulai capture wiresharknya: (pilih jaringan melkor) 
 
 <img width="312" height="284" alt="image" src="https://github.com/user-attachments/assets/80d8e334-de60-4363-9a5c-7124a9147c39" />
+
 pilih start capture, lalu jalankan file traffic.sh dengan cara :
 
 ```
 ./traffic.sh
 ```
 maka akan muncul tampilan seperti ini :
+
 <img width="557" height="121" alt="image" src="https://github.com/user-attachments/assets/ef344c55-ad9b-4413-9b2f-f2c9bcd72e56" />
-setelah itu stop capture dan masuk ke wireshark untuk displauy filter : 
+
+setelah itu stop capture dan masuk ke wireshark untuk display filter : 
 ```
 ip.addr == 10.78.1.3
 ```
