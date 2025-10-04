@@ -15,6 +15,53 @@ Selanjutnya, setiap node dihubungkan, dengan Eru terhubung ke NAT. Lalu, server 
 <img width="1098" height="702" alt="Screenshot 2025-10-04 at 14 11 52" src="https://github.com/user-attachments/assets/188e2c78-d19c-43b4-bc20-7898053076ce" />
 
 ## No. 4
+Agar setiap client tdapat terhubung ke internet, konfigurasi router dan client diperlukan. Untuk network configuration Eru seperti ini.
+
+```
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+	address 10.78.1.1
+	netmask 255.255.255.0
+        post-up iptables -t nat -A POSTROUTING -s 10.78.1.0/24 -o eth0 -j MASQUERA
+
+auto eth2
+iface eth2 inet static
+	address 10.78.2.1
+	netmask 255.255.255.0
+        post-up iptables -t nat -A POSTROUTING -s 10.78.2.0/24 -o eth0 -j MASQUERADE
+```
+
+Lalu, untuk Ainur (client) seperti ini.
+**Melkor**
+```
+auto eth0
+iface eth0 inet static
+	address 10.78.1.2
+	netmask 255.255.255.0
+	gateway 10.78.1.1
+```
+
+**Manwe**
+```
+auto eth0
+iface eth0 inet static
+	address 10.78.1.3
+	netmask 255.255.255.0
+	gateway 10.78.1.1
+```
+
+**Melkor**
+```
+
+```
+
+**Melkor**
+```
+```
+
 ## No. 5
 ## No. 6
 ## No. 7
