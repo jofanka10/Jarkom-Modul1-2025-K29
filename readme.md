@@ -35,6 +35,7 @@ iface eth2 inet static
 ```
 
 Lalu, untuk Ainur (client) seperti ini.
+
 **Melkor**
 ```
 auto eth0
