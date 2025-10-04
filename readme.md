@@ -53,16 +53,42 @@ iface eth0 inet static
 	gateway 10.78.1.1
 ```
 
-**Melkor**
+**Varda**
+```
+auto eth0
+iface eth0 inet static
+	address 10.78.2.2
+	netmask 255.255.255.0
+	gateway 10.78.2.1
 ```
 
+**Ulmo**
+```
+auto eth0
+iface eth0 inet static
+	address 10.78.2.3
+	netmask 255.255.255.0
+	gateway 10.78.2.1
 ```
 
-**Melkor**
+Setelah itu, agar dapat terhubung satu sama lain, kita memerlukan `iptables`. Untuk commandnya seperti ini. Namun sebelum itu, jika kita ingin menjalankannya di terminal, kita perlu menggunakan `telnet` agar dapat terhubung. Jika berhasil maka tampilannya akan seperti ini (Manwe).
+
+<img width="496" height="121" alt="Screenshot 2025-10-04 at 14 29 39" src="https://github.com/user-attachments/assets/0f0900e4-efe8-4f79-b50e-5b9d70a742e3" />
+
+Untuk kode `iptables` seperti ini`. 
+
 ```
+iptables -t nat -A POSTROUTING -s 10.78.1.0/24 -o eth0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 10.78.2.0/24 -o eth0 -j MASQUERADE
 ```
+Jika tidak berhasil, maka user dapat menjalankan `apt update` dan `apt install iptables`. Jika `iptables` berhasil dijalankan, kita bisa menghubungkan Eru dengan para Ainur. Untuk hasilnya seperti ini.
+
+
+
+
 
 ## No. 5
+Agar seluruh konfigurasi tidak hilang saa
 ## No. 6
 ## No. 7
 ## No. 8
