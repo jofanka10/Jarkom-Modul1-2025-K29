@@ -7,6 +7,7 @@ Anggota
 | Jofanka Al-Kautsar Pangestu Abady | 5027241107 |
 
 
+## No. 1
 
 
 ## No. 14
@@ -24,8 +25,7 @@ Setelah itu, kita follow TCP untuk mendapatkan informasi username dan password.
 
 Dari gambar tersebut, ada informasi stream di bawah kanan dan tools yang digunakan untuk brute force. Setelah kita dapatkan datanya, kita langsung saja masukkan ke `nc 10.15.43.32 3401`. Setelah kita memasukkan datanya ke sana, kita mendapatkan sebuah flag.
 
-![Uploading Screenshot 2025-10-04 at 13.13.05.png…]()
-
+<img width="865" height="434" alt="Screenshot 2025-10-04 at 13 31 28" src="https://github.com/user-attachments/assets/542af136-2e04-47a2-8253-8d2b11c27f7b" />
 
 ## No. 16
 Pada soal ini, kita akan mencari username dan password yang ada pada file pcap.
